@@ -7,6 +7,12 @@ jobs:
    test:
      environment: test
      runs-on: ubuntu-latest
-     steps:
-      - name: Echo current commit  
-        run: echo "Current commit SHA ${{ github.event.pull_request.head.ref }}"  
+     steps:  
+     - name: Checkout repository  
+       uses: actions/checkout@v4
+       with:  
+         ref: ${{ github.event.pull_request.head.ref }}  
+  
+     - name: Get the current commit SHA  
+       id: get_commit_sha  
+       run: echo "Commit SHA $(git rev-parse HEAD)"  
