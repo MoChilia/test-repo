@@ -1,0 +1,12 @@
+name: pr-check
+
+on:
+  pull_request_target:
+  
+jobs:
+   test:
+     environment: test
+     runs-on: ubuntu-latest
+     steps:
+      - name: Echo current commit  
+        run: echo "Current commit SHA ${{ github.sha }}"  
