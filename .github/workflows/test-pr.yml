@@ -9,4 +9,4 @@ jobs:
      runs-on: ubuntu-latest
      steps:
       - name: Echo current commit  
-        run: echo "Current commit SHA ${{ github.sha }}"  
+        run: echo "Current commit SHA ${{ github.event.pull_request.head.ref }}"  
